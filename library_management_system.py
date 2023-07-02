@@ -1,3 +1,6 @@
+import datetime
+
+
 class Register:
     """
     This class will Register User
@@ -179,38 +182,90 @@ class LibraryManagementSystem:
     """
 
     def __init__(self):
-        self.__books = []
+        self.__books_user = []
         self.__user = []
 
     def add_books(self, books, users):
-        self.__books.append(books.get_book_id())
-        self.__user.append(users.get_name())
+        self.__books_user.append([books.get_book_id(), books.get_book_name(), books.get_quantity(), users.get_name(),
+                                  datetime.datetime.now().strftime("%d/%m/%y")])
+
+    def register(self, users):
+        self.__user.append([users.get_name(), users.get_email(),
+                            users.get_address(), users.get_mobile_number(),
+                            users.get_password()])
 
     def get_books(self):
-        return self.__books
+        return self.__books_user
 
-    def get_users(self):
+    def get_user(self):
         return self.__user
 
-    def show_info(self):
-        return f"{self.get_users()}, {self.get_books()}"
 
-
+# ------------------------------------------------------Not working---------------------------------------------------
+# This code is not working I don't know why can you solve this with user input
 if __name__ == '__main__':
-    address1 = Address(505, 587965, 'Ranchi', 'Jharkhand')
-    user = Register('Saif', '4859756322', 'saif44@gmail.com', address1, '1234')
-    book1 = Books(101, 'Titanic', 'James', 5)
-
-    login = Login(user.get_name(), user.get_password())
-
-    # print(user.show_profile())
-    # print(login.get_username_password())
-
+    pass
+    '''
+    MENU = """
+                                        Welcome to Library
+                                    +++++++++++++++++++++++++
+                              ;--------------------;
+                              |  1. Register       |
+                              |  2. Login          |
+                              |  3. Rent a Book    |
+                              |  4. Return Book    |
+                              |  5. Show Info      |
+                              |  5. Exit (q)       |
+                              |____________________|
+                               Enter Here: """
     lms = LibraryManagementSystem()
-    lms.add_books((), user)
+    ask_user = input(MENU)
 
-    print(lms.show_info())
-# -----------------------------------------------------Test Run------------------------------------------------------
+    if ask_user == '1':
+        ask_user_address = input("Enter Your Address (post_office, pin, city, state): ").split(", ")
+        ask_user_info = input("Enter Your Details (Name, Mobile Number, Email, Password), "
+                              "Note: your Name will be User Name: ").split(", ")
+
+        users = Register(ask_user_info[0], ask_user_info[1],
+                         ask_user_info[2], ask_user_address,
+                         ask_user_info[3])
+
+        lms.register(users)
+        print(lms.get_user())
+    elif ask_user == '2':
+        print(lms.get_user())
+    '''
+
+# -----------------------------------------------------Test Run (Its Working)-----------------------------------------
+address1 = Address('505', '587965', 'Ranchi', 'Jharkhand')
+user1 = Register('Saif', '4859756322', 'saif44@gmail.com', address1, '1234')
+user2 = Register('Kaif', '5698564563', 'kaif55@gmail.com', address1, '5566')
+book1 = Books(101, 'Titanic', 'James', 5)
+
+lms = LibraryManagementSystem()
+
+lms.add_books(book1, user1)
+lms.register(user1)
+lms.register(user2)
+print(lms.get_books())
+print(lms.get_user())
+
+# ------------------------------------------------------ For Understanding ------------------------------------------
+
+# user2 = Register('Kaif', '5698564563', 'kaif55@gmail.com', address1, '5566')
+# book2 = Books(102, 'Silent', 'Joseph', 3)
+
+# login1 = Login(user1.get_name(), user1.get_password())
+# login2 = Login(user2.get_name(), user2.get_password())
+
+# print(user.show_profile())
+# print(login.get_username_password())
+
+# lms = LibraryManagementSystem()
+
+# lms.add_books(book1, user1)
+# lms.add_books(book2, user2)
+
 # addr1 = Address(505, 569880, 'Ranchi', 'Jharkhand')
 # user1 = Register('Saif', '5897856325', 'saif44@gmail.com', addr1, '1234')
 # l1 = Login(user1.get_name(), user1.get_password())
