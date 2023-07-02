@@ -178,18 +178,38 @@ class LibraryManagementSystem:
     This Is the Library Class that can do all complex Functions Collaboration
     """
 
-    pass
+    def __init__(self):
+        self.__books = []
+        self.__user = []
+
+    def add_books(self, books, users):
+        self.__books.append(books.get_book_id())
+        self.__user.append(users.get_name())
+
+    def get_books(self):
+        return self.__books
+
+    def get_users(self):
+        return self.__user
+
+    def show_info(self):
+        return f"{self.get_users()}, {self.get_books()}"
 
 
 if __name__ == '__main__':
     address1 = Address(505, 587965, 'Ranchi', 'Jharkhand')
     user = Register('Saif', '4859756322', 'saif44@gmail.com', address1, '1234')
+    book1 = Books(101, 'Titanic', 'James', 5)
 
     login = Login(user.get_name(), user.get_password())
 
-    print(user.show_profile())
-    print(login.get_username_password())
+    # print(user.show_profile())
+    # print(login.get_username_password())
 
+    lms = LibraryManagementSystem()
+    lms.add_books((), user)
+
+    print(lms.show_info())
 # -----------------------------------------------------Test Run------------------------------------------------------
 # addr1 = Address(505, 569880, 'Ranchi', 'Jharkhand')
 # user1 = Register('Saif', '5897856325', 'saif44@gmail.com', addr1, '1234')
