@@ -1,6 +1,3 @@
-import random
-
-
 class Register:
     __account_no = 1005687456982548
 
