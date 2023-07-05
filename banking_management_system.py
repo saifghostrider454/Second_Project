@@ -1,4 +1,8 @@
 class Register:
+    """
+    This class will register Customers and take Personal their Details
+    and create their objects.
+    """
     __account_no = 1005687456982548
 
     def __init__(self, name: str, age: int, gender: str, mobile_no: str, email: str, address: vars()) -> None:
@@ -136,25 +140,3 @@ class Bank(User):
             raise UserWarning("You Don't have enough Balance")
         self.__account_balance -= amount
         other.__account_balance += amount
-
-
-if __name__ == '__main__':
-    try:
-        add1 = Address('Los-angle', 'Chasuble', '598756', 'Ranchi', 'Jharkhand')
-        user1 = Bank('saif', 25, 'Male', '7895465423', 'saif44gmail.com', add1, '1234')
-        user2 = Bank('kaif', 25, 'Male', '5879865456', 'kaif55@gmail.com', add1, '5566')
-        user3 = Bank('Raju', 30, 'Male', '5878956485', 'raju55@gmail.com', add1, '8798')
-        user1.set_balance(500)
-        user1.deposit(200)
-        user1.withdraw(100)
-        user1.transfer(200, user2)
-        user2.transfer(150, user3)
-    except Exception as error:
-        print(error)
-    else:
-        print(user1.get_balance())
-        print(user2.get_balance())
-        print(user3.get_balance())
-        print(user1.get_account_no())
-        print(user2.get_account_no())
-        print(user3.get_account_no())
