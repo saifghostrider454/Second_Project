@@ -11,12 +11,14 @@ def check_number_sign(number: int) -> str:
         return 'It is a zero number'
 
 
-def round(number: float) -> str:
-    return ("{:.2f}".format(number))
+# Write a Python program to compute and print sum of two given integers (more than or equal to zero).
+# If given integers or the sum have more than 80 digits, print "overflow".
 
-
-print(round(22.5652))
-
-n = 22.5685
-n.__round__()
-print(n)
+def check_sum(number1, number2):
+    if number1 >= 0 and number2 >= 0:
+        if number1 + number2 > 10**80 or number1 > 10**80 or number2 > 10**80:
+            return 'overflow'
+        else:
+            return number1 + number2
+    else:
+        pass
