@@ -342,21 +342,32 @@ list_of_persons = ['ghost', 'x-men', 'hulk', 'kira', 'dust man', 'killer man',
 death_list = {}
 
 
-def deathnote(name_of_the_person: str, cause_of_death=''):
-    if cause_of_death == '':
-        cause_of_death = 'Heart Attack'
-    if name_of_the_person in list_of_persons:
-        print("Wait...")
-        time.sleep(10)
-        death_list[name_of_the_person] = cause_of_death
-        list_of_persons.remove(name_of_the_person)
-        print(f"{name_of_the_person} is Killed, Cause of Death: {cause_of_death}")
-    else:
-        print("Violation of Rule")
+# def deathnote(name_of_the_person: str, cause_of_death=''):
+#     if cause_of_death == '':
+#         cause_of_death = 'Heart Attack'
+#     if name_of_the_person in list_of_persons:
+#         print("Wait...")
+#         time.sleep(10)
+#         death_list[name_of_the_person] = cause_of_death
+#         list_of_persons.remove(name_of_the_person)
+#         print(f"{name_of_the_person} is Killed, Cause of Death: {cause_of_death}")
+#     else:
+#         print("Violation of Rule")
+#
+# 
+# ask_name = input("Enter Persons Name Here: ").lower()
+# death_cause = input("Enter Cause of Death: ").title()
+# deathnote(ask_name, death_cause)
+# print(death_list)
+# print(list_of_persons)
 
 
-ask_name = input("Enter Persons Name Here: ").lower()
-death_cause = input("Enter Cause of Death: ").title()
-deathnote(ask_name, death_cause)
-print(death_list)
-print(list_of_persons)
+temperatures_w1 = [32, 34, 31, 30, 29, 28, 33]
+temperatures_w2 = [31, 34, 35, 28, 29]
+
+
+def calculate_average_temperature(temperature: list) -> int:
+    return sum(temperature) / len(temperature)
+
+
+print(calculate_average_temperature(temperatures_w1))

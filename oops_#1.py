@@ -164,7 +164,6 @@ class Line:
 # Pass by reference
 
 class Person:
-
     __counter = 100
 
     def __init__(self, name, gender):
@@ -193,6 +192,7 @@ p2 = Person('kaif', 'male')
 p3 = Person('merry', 'female')
 p4 = Person('ghost', 'male')
 
+
 # l1 = [p1, p2, p3]
 #
 # for i in l1:
@@ -208,15 +208,29 @@ p4 = Person('ghost', 'male')
 # print(Person.get_counter())
 
 
+# class Calculator:
+#
+#     def sum(self, x, y):
+#         return x + y
+#
+#
+# num1 = int(input())
+# num2 = int(input())
+# obj = Calculator()
+#
+#
+# print(obj.sum(num1, num2))
 
 
+class A:
+    def __init__(self, b):
+        self.b = b
+
+    def display(self):
+        print(self.b)
 
 
+obj = A("Hello")
+# del obj
 
-
-
-
-
-
-
-
+obj.display()
